@@ -1,303 +1,407 @@
 # Omni-CE ERP
 
-> AI-Native Open Source Enterprise Resource Planning Platform
+> Modern Open Source ERP Platform built with React and Golang.
 
-Omni-CE ERP is a modern, AI-native, open source ERP platform designed for organizations that need automation, scalability, modularity, and intelligent business workflows.
+Omni-CE ERP is a modern, fast, and scalable open source ERP platform designed for developers and businesses that need a production-ready enterprise system with a modern technology stack and clean architecture.
 
-Built with a cloud-native and API-first architecture, Omni-CE ERP combines traditional ERP capabilities with AI agents, workflow orchestration, real-time analytics, and extensible modules.
-
----
-
-## Vision
-
-To build the next-generation open source ERP platform where AI is not an add-on, but the core operating layer of enterprise workflows.
+Built using React 19, Golang, Fiber, GORM, and TailwindCSS v4, Omni-CE ERP focuses on developer experience, modularity, maintainability, and high performance.
 
 ---
 
-# Why Omni-CE ERP?
+# Overview
 
-Traditional ERP systems are often:
-- monolithic
-- difficult to customize
-- expensive
-- outdated in UX
-- not AI-ready
+Omni-CE ERP is designed for building:
 
-Omni-CE ERP is designed differently.
+- ERP systems
+- CRM platforms
+- HRIS applications
+- Inventory systems
+- POS systems
+- Internal business tools
+- Enterprise dashboards
+- SaaS applications
 
-### Core Principles
-
-- AI-first architecture
-- Modular ecosystem
-- API-first design
-- Open source forever
-- Cloud-native deployment
-- Enterprise-grade scalability
-- Developer-friendly platform
-- Multi-tenant ready
-- Extensible plugin system
+The project provides a production-ready starter foundation with authentication, role management, theming, multi-language support, responsive dashboard layouts, and Docker deployment support.
 
 ---
 
-# Key Features
-
-## AI-Native Features
-
-- AI Workflow Automation
-- AI Assistant / Copilot
-- Natural Language Commands
-- AI Reporting & Insights
-- Smart Forecasting
-- AI Document Processing
-- AI Agent Orchestration
-- Semantic Search
-- Knowledge Memory Layer
-
----
-
-## ERP Core Modules
-
-### Finance & Accounting
-- General Ledger
-- Journal
-- Invoice
-- Payment
-- Tax
-- Budgeting
-- Financial Reports
-
-### Sales & CRM
-- CRM
-- Quotation
-- Sales Order
-- Pipeline Management
-- Customer Portal
-
-### Purchasing
-- Vendor Management
-- Purchase Order
-- Procurement Workflow
-
-### Inventory & Warehouse
-- Inventory
-- Warehouse
-- Stock Movement
-- Multi Warehouse
-- Barcode Support
-
-### Human Resource
-- Employee Management
-- Payroll
-- Attendance
-- Leave Management
-- Recruitment
-
-### Manufacturing
-- Bill of Materials
-- Production Planning
-- MRP
-- Work Orders
-
-### Project Management
-- Projects
-- Tasks
-- Timesheet
-- Team Collaboration
-
----
-
-# Architecture
-
-Omni-CE ERP follows a modern enterprise architecture:
-
-- API-first
-- Service-oriented
-- Event-driven
-- Modular
-- AI-integrated
-
-```text
-┌───────────────────────┐
-│     Frontend Apps     │
-├───────────────────────┤
-│ Web │ Mobile │ Admin  │
-└──────────┬────────────┘
-           │
-           ▼
-┌───────────────────────┐
-│      API Gateway      │
-└──────────┬────────────┘
-           │
- ┌─────────┴─────────┐
- ▼                   ▼
-Core Services     AI Services
-ERP Modules       AI Agents
-Workflow Engine   LLM Gateway
-Auth Service      Memory Layer
-Event Bus         Embedding Engine
-```
-
----
-
-# Technology Goals
-
-## Backend
-- Golang / Rust / Node.js
-- PostgreSQL
-- Redis
-- gRPC / REST
-- Event Streaming
+# Features & Technology Stack
 
 ## Frontend
-- React
+
+- React 19
 - TypeScript
-- TailwindCSS
+- Vite
+- TailwindCSS v4
+- Zustand
+- React Router
+- VitePWA
+
+### Included Features
+
+- Responsive dashboard layout
+- Sidebar & topbar navigation
+- Dark / light mode
+- Multi-language support
+- Theme system
+- Protected routes
+- Authentication pages
+- Role-based navigation
+- PWA support
+
+---
+
+## Backend
+
+- Golang
+- Fiber v2
+- GORM ORM
+- JWT Authentication
+- REST API architecture
+- Server-Sent Events (SSE)
+
+### Database Support
+
+- SQLite
+- PostgreSQL
+- MySQL
+
+### Included Features
+
+- JWT authentication
+- Role-based access control
+- Auto database migration
+- Modular service architecture
+- Real-time event support
+- Environment configuration
+
+---
 
 ## Infrastructure
+
 - Docker
-- Kubernetes
-- Cloud Native
-- Horizontal Scaling
-
-## AI Stack
-- Local LLM Support
-- Ollama Integration
-- OpenAI Compatible APIs
-- RAG Pipeline
-- Vector Database
+- Docker Compose
+- Production-ready deployment
+- Reverse proxy compatible
 
 ---
 
-# Project Philosophy
+# Project Structure
 
-Omni-CE ERP is designed to be:
-
-- open
-- composable
-- extensible
-- automation-ready
-- AI-native from day one
-
-This project is not just another ERP system.
-
-It is an intelligent enterprise operating platform.
-
----
-
-# Plugin System
-
-Omni-CE ERP supports modular plugins.
-
-Example:
+Berikut adalah struktur folder utama dari proyek ini:
 
 ```text
-modules/
-├── accounting/
-├── crm/
-├── inventory/
-├── hrm/
-├── manufacturing/
-├── ai-agent/
-├── workflow/
-└── analytics/
-```
-
-Each module can be:
-- enabled independently
-- deployed separately
-- extended via SDK
-- connected through events/APIs
-
----
-
-# Monorepo Structure
-
-```text
-omni-ce/
-├── apps/
-├── services/
-├── modules/
-├── packages/
-├── sdk/
-├── infrastructure/
-├── docker/
-├── docs/
-└── scripts/
+.
+├── core/                   # Backend Logic (Go / Fiber Framework)
+│   ├── database/           # Database configurations and migrations
+│   ├── dto/                # Data Transfer Objects
+│   ├── enigma/             # Encryption & Security utilities
+│   ├── environment/        # Environment configurations
+│   ├── function/           # Helper functions
+│   ├── middlewares/        # Fiber middlewares (Auth, CORS, etc.)
+│   ├── modules/            # Domain-driven modules
+│   │   ├── auth/           # Authentication module
+│   │   ├── master_data/    # Master data management
+│   │   ├── product/        # Product management
+│   │   ├── user/           # User & Role management
+│   │   └── ...             # Other business modules
+│   └── server.go           # Backend entry point
+│
+├── src/                    # Frontend Application (React + Vite)
+│   ├── assets/             # Static assets (images, icons)
+│   ├── components/         # Reusable UI components
+│   │   ├── ui/             # Base UI components
+│   │   └── widget/         # Complex UI widgets
+│   ├── hooks/              # Custom React hooks
+│   ├── layouts/            # Page layouts (App, Auth, Public)
+│   ├── lib/                # Library configurations & utilities
+│   ├── pages/              # Application pages
+│   │   ├── app/            # Protected application pages
+│   │   ├── auth/           # Login, Register, Forgot Password
+│   │   └── system/         # System configuration pages
+│   ├── services/           # API service integrations
+│   ├── stores/             # Zustand state management
+│   ├── types/              # TypeScript definitions
+│   └── main.tsx            # Frontend entry point
+│
+├── public/                 # Static files for web server
+├── tests/                  # End-to-end tests
+├── uploads/                # Uploaded files storage
+├── Dockerfile              # Docker configuration
+├── docker-compose.yml      # Docker Compose configuration
+├── go.mod                  # Go dependencies
+├── package.json            # Node.js dependencies
+└── vite.config.ts          # Vite configuration
 ```
 
 ---
 
-# Roadmap
+## Backend (`core/`)
 
-## Phase 1
+This sector handles the entire server-side application using Golang and Fiber framework.
+
+Built with modular architecture for scalability and maintainability.
+
+### Includes
+
+- Authentication system
+- Middleware management
+- Database integration
+- Modular business domains
+- Security utilities
+- Environment management
+
+---
+
+## Frontend (`src/`)
+
+Built using React, TypeScript, and Vite with a modern frontend architecture focused on scalability and developer experience.
+
+### Includes
+
+- Reusable UI components
+- Responsive layouts
+- Zustand state management
+- Route management
+- Theme system
+- Multi-language support
+
+---
+
+## Database
+
+Using GORM as the primary ORM with automatic migration support.
+
+### Supported Databases
+
+- SQLite
+- PostgreSQL
+- MySQL
+
+---
+
+# Quick Start
+
+## Clone Repository
+
+```bash
+git clone https://github.com/your-org/omni-ce.git .
+```
+
+---
+
+## Initialize Project
+
+```bash
+bash initialize.sh
+```
+
+---
+
+## Run Frontend
+
+```bash
+bun run dev
+```
+
+---
+
+## Run Backend
+
+```bash
+air
+```
+
+---
+
+# Minimum Requirements
+
+| Requirement | Version  |
+| ----------- | -------- |
+| Node.js     | 20.20.2+ |
+| Bun         | 1.3.6+   |
+| Go          | 1.25.6+  |
+
+---
+
+# Docker
+
+## Docker Compose
+
+Run the entire application stack using Docker Compose.
+
+```bash
+docker compose up -d
+```
+
+Stop all containers:
+
+```bash
+docker compose down
+```
+
+Rebuild containers:
+
+```bash
+docker compose up -d --build
+```
+
+---
+
+## Standard Docker Usage
+
+### Build Docker Image
+
+```bash
+docker build -t omni-ce .
+```
+
+---
+
+### Run Container
+
+```bash
+docker run -d \
+  --name omni-ce \
+  -p 3000:3000 \
+  -p 5173:5173 \
+  omni-ce
+```
+
+---
+
+### Stop Container
+
+```bash
+docker stop omni-ce
+```
+
+---
+
+### Remove Container
+
+```bash
+docker rm omni-ce
+```
+
+---
+
+# ERP Modules & Roadmap
+
+## Core System
+
 - Authentication
-- RBAC
+- User Management
+- Role & Permission
 - Organization Management
-- Core API
-- Plugin System
+- Dashboard
+- Settings
+- Multi-language
+- Theme System
 
-## Phase 2
+---
+
+## Business Modules
+
+### Planned
+
 - Accounting
-- Inventory
 - CRM
 - HRM
+- Inventory
+- Procurement
+- Sales
+- POS
+- Warehouse
+- Reporting
+- Analytics
 
-## Phase 3
-- AI Copilot
-- AI Workflow Engine
-- Semantic Search
-- Predictive Analytics
+---
 
-## Phase 4
-- Multi-Tenant Cloud
-- Marketplace
+## Future Development
+
+- Plugin system
 - Public SDK
-- Enterprise Deployment
+- Multi-tenant support
+- Marketplace
+- Module generator
+- Audit log system
+- Notification center
+- Advanced reporting
+- Real-time collaboration
+
+---
+
+# Development Experience
+
+Omni-CE ERP is built for modern developer workflows.
+
+### Highlights
+
+- Instant HMR with Vite
+- Fast backend compile with Go
+- Type-safe frontend architecture
+- Auto reload backend server
+- Minimal setup
+- Clean modular structure
+- Production-ready foundation
 
 ---
 
 # Open Source
 
-Omni-CE ERP is fully open source.
+Omni-CE ERP is fully open source and community-driven.
 
-We believe enterprise software should be:
-- transparent
-- extensible
-- community-driven
-- developer-friendly
+Contributions are welcome for:
+
+- Features
+- Bug fixes
+- Documentation
+- UI/UX improvements
+- ERP modules
+- Infrastructure improvements
 
 ---
 
 # Contributing
 
-We welcome contributions from developers, designers, DevOps engineers, and business experts.
+## Setup Development Environment
 
-## Ways to Contribute
+```bash
+git clone https://github.com/your-org/omni-ce.git
+cd omni-ce
+bash initialize.sh
+```
 
-- Bug Reports
-- Feature Requests
-- Documentation
-- UI/UX Improvements
-- Module Development
-- AI Agent Development
+---
+
+## Create Branch
+
+```bash
+git checkout -b feature/your-feature
+```
+
+---
+
+## Commit Changes
+
+```bash
+git commit -m "feat: add new feature"
+```
+
+---
+
+## Push Branch
+
+```bash
+git push origin feature/your-feature
+```
 
 ---
 
 # Security
 
-Security is a top priority.
-
-Please report vulnerabilities responsibly through private channels before public disclosure.
-
----
-
-# Community
-
-Coming soon:
-- Discord
-- GitHub Discussions
-- Documentation Portal
-- Plugin Marketplace
+Please report security vulnerabilities responsibly through private communication before opening a public issue.
 
 ---
 
@@ -309,4 +413,4 @@ MIT License
 
 # Omni-CE ERP
 
-Build the future of intelligent enterprise systems.
+Build modern enterprise applications with React and Golang.
